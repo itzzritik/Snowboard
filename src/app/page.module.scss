@@ -9,10 +9,16 @@
 	}
 	.content {
 		flex: 1;
+		display: flex;
+		flex-direction: column;
 		min-height: 100vh;
 		border: 1px solid var(--colorContentTertiary);
 		border-top: 0px;
 		border-bottom: 0px;
+
+		.pageBody {
+			flex: 1;
+		}
 	}
 	.sidebar {
 		width: 280px;

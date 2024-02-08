@@ -21,6 +21,7 @@ html {
 	width: 100vw;
 	background: var(--colorBackgroundPrimary);
 	scroll-behavior: smooth;
+	transition: background 0.3s ease-out;
 
 	::selection {
 		color: white;

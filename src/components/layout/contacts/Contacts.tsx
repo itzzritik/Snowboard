@@ -1,6 +1,4 @@
 /* eslint-disable jsx-a11y/alt-text */
-'use client';
-
 /* eslint-disable @next/next/no-img-element */
 import { contacts } from '#utils/data/sidebar';
 import { useAvatar } from '#utils/data/userData';

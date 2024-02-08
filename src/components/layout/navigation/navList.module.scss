@@ -1,0 +1,14 @@
+.navList {
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+
+	> h2 {
+		font-size: 14px;
+		line-height: 20px;
+		font-variation-settings: "wdth" 75, "wght" 400;
+		margin: 0;
+		padding: 4px 12px;
+	}
+}

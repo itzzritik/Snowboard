@@ -9,7 +9,6 @@ export const useAvatar = (size: number = 300) => {
 		fetch(getAvatarUrl(size), { method: 'HEAD' })
 			.then((response) => {
 				const finalUrl = response.url ?? response.headers.get('location');
-				console.log(finalUrl);
 				setAvatar(finalUrl ?? '');
 			})
 			.catch((error) => console.error('Error:', error));

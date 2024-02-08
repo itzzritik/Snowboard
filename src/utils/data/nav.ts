@@ -1,8 +1,9 @@
 export const favorites = ['Overview', 'Projects'];
-export const dashboard = [
+export const dashboards: TNavItem[] = [
 	{
 		icon: 'f64e',
 		label: 'Overview',
+		subItems: [],
 	},
 	{
 		icon: 'f290',
@@ -17,30 +18,30 @@ export const dashboard = [
 	{
 		icon: 'f518',
 		label: 'Online Courses',
-		subItems: ['All Courses', 'Featured Courses', 'Course Categories', 'My Courses'],
+		subItems: ['All', 'Featured', 'Categories', 'My Courses'],
 	},
 ];
 
-export const pages = [
+export const pages: TNavItem[] = [
 	{
 		icon: 'f2c1',
 		label: 'User Profile',
-		subItems: ['Overview', 'Projects', 'Campaigns', 'Documents', 'Followers'],
+		subItems: ['Overview ', 'Projects ', 'Campaigns', 'Documents', 'Followers'],
 	},
 	{
 		icon: 'f2c2',
 		label: 'Account',
-		subItems: ['Profile Settings', 'Security & Privacy', 'Notification Preferences', 'Billing Information', 'Activity History'],
+		subItems: ['Profile', 'Security', 'Notification', 'Billing', 'Activity'],
 	},
 	{
 		icon: 'f0c0',
 		label: 'Corporate',
-		subItems: ['Company Overview', 'Investor Relations', 'Leadership Team'],
+		subItems: ['Company', 'Investors', 'Leadership'],
 	},
 	{
 		icon: 'e201',
 		label: 'Blog',
-		subItems: ['Latest Articles', 'Categories', 'Author Spotlight', 'Trending Topics', 'Archives'],
+		subItems: ['Articles', 'Spotlight', 'Trending', 'Archives'],
 	},
 	{
 		icon: 'f086',
@@ -48,3 +49,9 @@ export const pages = [
 		subItems: ['Feed', 'Explore', 'Friends', 'Groups', 'Events', 'Chat', 'Notifications'],
 	},
 ];
+
+export type TNavItem = {
+	icon: string,
+	label: string,
+	subItems: string[]
+}

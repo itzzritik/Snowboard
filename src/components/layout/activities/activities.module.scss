@@ -21,6 +21,7 @@
 		position: relative;
 		display: flex;
 		flex-direction: column;
+		padding-top: 4px;
 
 		&::before {
 			content: '';
@@ -34,7 +35,7 @@
 
 		.card {
 			display: flex;
-			padding: 8px 8px 8px 0;
+			padding: 4px 8px 12px 0;
 			z-index: 2;
 			border-radius: 12px;
 			cursor: pointer;
@@ -76,10 +77,10 @@
 			}
 
 			&:hover {
-				background: var(--colorBackgroundSecondary);
+				background: var(--colorBackgroundTertiary);
 		
 				.avatar {
-					border-color: var(--colorBackgroundSecondary);
+					border-color: var(--colorBackgroundTertiary);
 				}
 				.desc {
 					transform: translateX(4px);

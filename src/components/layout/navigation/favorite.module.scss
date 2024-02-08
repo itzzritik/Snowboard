@@ -21,7 +21,7 @@
 			}
 			&:hover {
 				padding: 4px 12px;
-				background: var(--colorBackgroundSecondary);
+				background: var(--colorBackgroundTertiary);
 			}
 		}
 	}
@@ -60,7 +60,7 @@
 			}
 
 			&:hover {
-				background: var(--colorBackgroundSecondary);
+				background: var(--colorBackgroundTertiary);
 
 				p {
 					transform: translateX(4px);

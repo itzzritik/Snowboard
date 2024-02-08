@@ -3,7 +3,7 @@ import clsx from 'clsx';
 
 import styles from './user.module.scss';
 
-export default function User ({ className, avatar, name }: IUser) {
+export default function User ({ className, avatar, name }: TUser) {
 
 	return (
 		<div className={clsx(styles.user, className)}>
@@ -13,7 +13,7 @@ export default function User ({ className, avatar, name }: IUser) {
 	);
 }
 
-type IUser = {
+type TUser = {
 	className?: string
 	avatar: string,
 	name: string

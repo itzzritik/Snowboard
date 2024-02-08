@@ -6,7 +6,7 @@ import { unicodeToString } from '#utils/string';
 
 import styles from './icon.module.scss';
 
-export const Icon = forwardRef<HTMLSpanElement, IIconProps>((props, ref) => {
+export const Icon = forwardRef<HTMLSpanElement, TIconProps>((props, ref) => {
 	const { className, code, type = 'light', size = 'default', onClick } = props;
 
 	const iconSize = `${typeof size === 'number' ? size : EIconSize[size]}px`;
@@ -32,7 +32,7 @@ export const Icon = forwardRef<HTMLSpanElement, IIconProps>((props, ref) => {
 
 Icon.displayName = 'Icon';
 
-type IIconProps = {
+type TIconProps = {
 	className?: string;
 	code: string;
 	type?: keyof typeof EIconType;

@@ -13,7 +13,7 @@ export const Icon = forwardRef<HTMLSpanElement, IIconProps>((props, ref) => {
 	const IconClsx = clsx(
 		styles.icon,
 		'fontAwesome',
-		type && styles[type],
+		type,
 		onClick && styles.iconButton,
 		className,
 	);

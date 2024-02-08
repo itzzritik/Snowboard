@@ -1,5 +1,5 @@
-@import '../styles/fontAwesome';
 @import '../styles/colorSchemes';
+@import '../styles/fontAwesome';
 
 html {
 	&[data-theme-scheme='system'] {
@@ -14,12 +14,17 @@ html {
 		@include darkScheme;
 	}
 
+	--colorBackgroundAccentEven: #E3F5FF; 
+	--colorBackgroundAccentOdd: #E5ECF6; 
+
+	position: relative;
+	width: 100vw;
 	background: var(--colorBackgroundPrimary);
 	scroll-behavior: smooth;
 
 	::selection {
 		color: white;
-		background: rgb(var(--colorContentTertiary));
+		background: var(--colorContentTertiary);
 	}
 
 	* {
@@ -27,5 +32,11 @@ html {
 		font-variation-settings: 'wdth' 75, 'wght' 500;
 		color: var(--colorContentPrimary);
 		box-sizing: border-box;
+	}
+
+	body {
+		position: relative;
+		width: 100vw;
+		margin: 0;
 	}
 }

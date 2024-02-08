@@ -1,0 +1,20 @@
+.user {
+	position: relative;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+
+	img {
+		width: 24px;
+		height: 24px;
+		border-radius: 9999px;
+		object-fit: cover;
+	}
+
+	p {
+		font-size: 14px;
+		line-height: 20px;
+		font-variation-settings: 'wdth' 75, 'wght' 400;
+		margin: 0;
+	}
+}

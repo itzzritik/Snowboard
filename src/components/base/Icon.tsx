@@ -2,17 +2,9 @@ import { forwardRef } from 'react';
 
 import clsx from 'clsx';
 
+import { unicodeToString } from '#utils/string';
+
 import styles from './icon.module.scss';
-
-const safeStringFromCodePoint = (codePoint: number) => {
-	if (isNaN(codePoint) || codePoint < 0 || codePoint > 0x10FFFF || Math.floor(codePoint) !== codePoint) return '';
-
-	return String.fromCodePoint(codePoint);
-};
-
-const unicodeToString = (unicode: string) => {
-	return safeStringFromCodePoint(parseInt(`0x${unicode}`, 16));
-};
 
 export const Icon = forwardRef<HTMLSpanElement, IIconProps>((props, ref) => {
 	const { className, code, type = 'light', size = 'default', onClick } = props;

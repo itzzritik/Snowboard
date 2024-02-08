@@ -1,12 +1,10 @@
 import { ReactNode } from 'react';
 
-import { Inter } from 'next/font/google';
+import { inter } from '#utils/font';
 
 import './globals.scss';
 
 import type { Metadata } from 'next';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
 	title: 'Snow Dashboard',
@@ -16,7 +14,7 @@ export const metadata: Metadata = {
 export default function RootLayout ({ children }: Readonly<{ children: ReactNode }>) {
 	return (
 		<html lang='en' data-theme-scheme='system'>
-			<body className={inter.className}>
+			<body className={inter.variable}>
 				{children}
 			</body>
 		</html>

@@ -1,5 +1,5 @@
-@import 'fontAwesome';
-@import 'colorSchemes';
+@import '../styles/fontAwesome';
+@import '../styles/colorSchemes';
 
 html {
 	&[data-theme-scheme='system'] {
@@ -23,6 +23,7 @@ html {
 	}
 
 	* {
+		font-family: var(--inter);
 		font-variation-settings: 'wdth' 75, 'wght' 500;
 		color: var(--colorContentPrimary);
 		box-sizing: border-box;

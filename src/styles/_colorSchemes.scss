@@ -1,0 +1,33 @@
+@mixin lightScheme {
+	color-scheme: light;
+
+	--colorContentPrimary: #1c1c1c;
+	--colorContentSecondary: #1C1C1C66
+	--colorContentTertiary: #1C1C1C33;
+
+	--colorBackgroundPrimary: #FFFFFF;
+	--colorBackgroundSecondary: #F7F9FB;
+	--colorBackgroundTertiary: #F3F3F3;
+}
+
+@mixin darkScheme {
+	color-scheme: dark;
+
+	--colorContentPrimary: #FFFFFF;
+	--colorContentSecondary: #FFFFFF66;
+	--colorContentTertiary: #FFFFFF33;
+
+	--colorBackgroundPrimary: #1C1C1C;
+	--colorBackgroundSecondary: #272727;
+	--colorBackgroundTertiary: #333333;
+}
+
+@mixin systemScheme {
+	@media (prefers-color-scheme: light) {
+		@include lightScheme;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		@include darkScheme;
+	}
+}

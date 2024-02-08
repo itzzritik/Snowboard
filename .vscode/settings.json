@@ -1,0 +1,34 @@
+{
+    "css.validate": false,
+	"less.validate": false,
+	"scss.validate": false,
+	"stylelint.validate": ["css", "scss"],
+    "files.eol": "\n",
+	"editor.tabSize": 4,
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit",
+		"source.fixAll.stylelint": "explicit"
+	},
+
+	"gitmoji.showEmojiCode": true,
+	"gitmoji.addCustomEmoji": [
+		{
+			"emoji": "🛰️",
+			"code": ":satellite:",
+			"description": "HTTP Requests related updates"
+		},
+		{
+			"emoji": "🛡️",
+			"code": ":shield:",
+			"description": "Typescript (TS) related updates"
+		}
+	],
+    
+    "cSpell.words": [
+        "clsx",
+        "wdth",
+        "wght"
+    ]
+}

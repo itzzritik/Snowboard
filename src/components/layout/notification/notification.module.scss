@@ -9,6 +9,12 @@
 		font-variation-settings: "wdth" 75, "wght" 400;
 		margin: 0 0 8px 0;
 		padding: 8px 4px;
+		user-select: none;
+		transition: all 0.3s ease-out;
+
+		&:hover {
+			transform: translateX(4px);
+		}
 	}
 
 	.content {
@@ -19,6 +25,9 @@
 		.card {
 			display: flex;
 			padding: 8px;
+			border-radius: 12px;
+			cursor: pointer;
+			transition: all 0.3s ease-out;
 
 			.icon {
 				margin-right: 8px;
@@ -36,6 +45,7 @@
 			.desc {
 				display: flex;
 				flex-direction: column;
+				transition: all 0.3s ease-out;
 
 				h3 {
 					font-size: 14px;
@@ -49,6 +59,7 @@
 					font-variation-settings: "wdth" 75, "wght" 400;
 					margin: 0;
 					color: var(--colorContentSecondary);
+					transition: all 0.3s ease-out;
 				}
 			}
 
@@ -60,6 +71,19 @@
 			&:nth-child(2n + 1) {
 				.icon {
 					background: var(--colorBackgroundAccentOdd);
+				}
+			}
+
+			&:hover {
+				background: var(--colorBackgroundSecondary);
+		
+				.desc {
+					transform: translateX(4px);
+					p {
+						font-size: 14px;
+						line-height: 20px;
+						color: var(--colorContentPrimary);
+					}
 				}
 			}
 		}

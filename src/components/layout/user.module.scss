@@ -4,6 +4,9 @@
 	align-items: center;
 	padding: 8px;
 	gap: 8px;
+	border-radius: 12px;
+	cursor: pointer;
+	transition: all 0.3s ease-out;
 
 	img {
 		width: 24px;
@@ -17,5 +20,14 @@
 		line-height: 20px;
 		font-variation-settings: 'wdth' 75, 'wght' 400;
 		margin: 0;
+		transition: all 0.3s ease-out;
+	}
+
+	&:hover {
+		background: var(--colorBackgroundSecondary);
+
+		p {
+			transform: translateX(4px);
+		}
 	}
 }

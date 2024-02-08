@@ -12,7 +12,9 @@ export default function Favorite () {
 			<div className={styles.body}>
 				{
 					favorites.map((favorite, i) => (
-						<div key={i}>{favorite}</div>
+						<div key={i}>
+							<p>{favorite}</p>
+						</div>
 					))
 				}
 			</div>

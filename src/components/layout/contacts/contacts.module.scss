@@ -9,6 +9,12 @@
 		font-variation-settings: "wdth" 75, "wght" 400;
 		margin: 0;
 		padding: 8px 4px;
+		user-select: none;
+		transition: all 0.3s ease-out;
+
+		&:hover {
+			transform: translateX(4px);
+		}
 	}
 
 	.content {

@@ -96,7 +96,7 @@ $fontAwesomeCDN: 'https://raw.githubusercontent.com/itzzjarvis/Assets/main/fonts
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	z-index: 1;
-	transition: all 0.4s var(--cubicBezierPrimary);
+	transition: all 0.3s var(--cubicBezierPrimary);
 
 	&::before {
 		position: absolute;

@@ -6,6 +6,7 @@ import { useAvatar } from '#utils/data/userData';
 
 import User from '../User';
 
+import Favorite from './Favorite';
 import styles from './navigation.module.scss';
 
 export default function Navigation ({ className }: {className?: string}) {
@@ -14,6 +15,7 @@ export default function Navigation ({ className }: {className?: string}) {
 	return (
 		<div className={clsx(styles.navigation, className)}>
 			<User avatar={avatar} name='ByeWind' />
+			<Favorite />
 		</div>
 	);
 }

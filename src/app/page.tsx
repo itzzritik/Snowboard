@@ -1,3 +1,5 @@
+import Activities from '#components/layout/activities/Activities';
+import Contacts from '#components/layout/contacts/Contacts';
 import Navigation from '#components/layout/navigation/Navigation';
 import Notification from '#components/layout/notification/Notification';
 
@@ -10,6 +12,8 @@ export default function Home () {
 			<div className={styles.content} />
 			<div className={styles.sidebar}>
 				<Notification />
+				<Activities />
+				<Contacts />
 			</div>
 		</main>
 	);

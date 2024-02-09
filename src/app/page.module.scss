@@ -6,6 +6,8 @@
 	.nav {
 		width: 212px;
 		height: 100%;
+		margin-left: -212px;
+		transition: all 0.3s ease-out;
 	}
 	.content {
 		flex: 1;
@@ -27,5 +29,18 @@
 		flex-direction: column;
 		padding: 16px;
 		gap: 16px;
+		margin-right: -280px;
+		transition: all 0.3s ease-out;
+	}
+
+	&.navOpen {
+		.nav {
+			margin-left: 0;
+		}
+	}
+	&.sidebarOpen {
+		.sidebar {
+			margin-right: 0;
+		}
 	}
 }

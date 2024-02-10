@@ -5,6 +5,7 @@
 
 	.nav {
 		width: 212px;
+		min-width: 212px;
 		height: 100%;
 		margin-left: -212px;
 		transition: all 0.3s ease-out;
@@ -20,10 +21,55 @@
 
 		.pageBody {
 			flex: 1;
+			display: flex;
+			flex-direction: column;
+			padding: 24px;
+
+			.topBar {
+				display: flex;
+				justify-content: space-between;
+				padding: 16px 8px;
+
+				p {
+					font-size: 14px;
+					line-height: 20px;
+					font-variation-settings: "wdth" 75, "wght" 600;
+					margin: 0;
+					transition: all 0.3s ease-out;
+				}
+				div {
+					display: flex;
+					align-items: center;
+					font-size: 12px;
+					line-height: 18px;
+					font-variation-settings: "wdth" 75, "wght" 400;
+					gap: 4px;
+					padding: 4px 8px;
+					border-radius: 8px;
+					transition: all 0.3s ease-out;
+					cursor: pointer;
+
+					i {
+						margin-top: 3px;
+						color: var(--colorContentSecondary);
+					}
+
+					&:hover {
+						background: var(--colorBackgroundTertiary);
+						gap: 8px;
+					}
+				}
+			}
+			.trends {
+				display: flex;
+				gap: 16px;
+				flex-wrap: wrap;
+			}
 		}
 	}
 	.sidebar {
 		width: 280px;
+		min-width: 280px;
 		height: 100%;
 		display: flex;
 		flex-direction: column;

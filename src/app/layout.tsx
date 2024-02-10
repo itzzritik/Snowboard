@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout ({ children }: Readonly<{ children: ReactNode }>) {
 	return (
-		<html lang='en' data-theme-scheme='system'>
-			<body className={inter.variable}>
+		<html lang='en' data-theme-scheme='system' suppressHydrationWarning>
+			<body className={inter.variable} suppressHydrationWarning>
 				{children}
 			</body>
 		</html>

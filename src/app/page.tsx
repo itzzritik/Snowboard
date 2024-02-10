@@ -3,11 +3,14 @@ import { useState } from 'react';
 
 import clsx from 'clsx';
 
+import { Icon } from '#components/base/Icon';
+import Trending from '#components/base/Trending';
 import Activities from '#components/layout/activities/Activities';
 import Contacts from '#components/layout/contacts/Contacts';
 import Header from '#components/layout/header/Header';
 import Navigation from '#components/layout/navigation/Navigation';
 import Notification from '#components/layout/notification/Notification';
+import { Trends } from '#utils/data/charts';
 import { dashboards } from '#utils/data/nav';
 
 import styles from './page.module.scss';
@@ -22,7 +25,20 @@ export default function Home () {
 			<Navigation className={styles.nav} active={activePage} setActive={setActivePage} />
 			<div className={styles.content}>
 				<Header activePage={activePage} toggleNav={() => setNavOpen((v) => !v)} toggleSidebar={() => setSideOpen((v) => !v)} />
-				<div className={styles.pageBody} />
+				<div className={styles.pageBody}>
+					<div className={styles.topBar}>
+						<p>{activePage}</p>
+						<div>
+							Today
+							<Icon code='f107' type='solid' size={12} />
+						</div>
+					</div>
+					<div className={styles.trends}>
+						{
+							Trends.map((trend, i) => <Trending key={i} {...trend} />)
+						}
+					</div>
+				</div>
 			</div>
 			<div className={styles.sidebar}>
 				<Notification />

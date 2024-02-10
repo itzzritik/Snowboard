@@ -1,0 +1,55 @@
+.trending {
+	padding: 24px;
+	border-radius: 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	flex: 1;
+	user-select: none;
+
+	* {
+		color: #1c1c1c;
+	}
+
+	h3 {
+		font-size: 12px;
+		line-height: 18px;
+		font-variation-settings: "wdth" 75, "wght" 400;
+		margin: 0;
+		transition: all 0.2s ease-out;
+
+		&:hover {
+			transform: translate(8px);
+		}
+	}
+
+	.valueWrapper {
+		display: flex;
+		align-items: center;
+
+		p {
+			font-size: 12px;
+			line-height: 18px;
+			font-variation-settings: "wdth" 75, "wght" 400;
+			margin: 0 6px 0 auto;
+			transition: all 0.2s ease-out;
+
+			&:hover {
+				transform: translate(-8px);
+			}
+		}
+
+		section {
+			span {
+				font-size: 22px !important;
+			}
+		}
+	}
+
+	&:nth-child(2n) {
+		background: var(--colorBackgroundAccentEven);
+	}
+	&:nth-child(2n + 1) {
+		background: var(--colorBackgroundAccentOdd);
+	}
+}

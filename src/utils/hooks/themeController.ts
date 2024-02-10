@@ -11,6 +11,7 @@ export const schemeIcon = {
 
 export const useTheme = () => {
 	const [themeScheme, setThemeScheme] = useState<TSchemes>(schemes[0]);
+	const [isDarkMode, setIsDarkMode] = useState(false);
 
 	const setTheme = (value: TSchemes) => {
 		if (schemes.includes(value))
@@ -39,5 +40,19 @@ export const useTheme = () => {
 		return () => { observer.disconnect(); };
 	}, []);
 
-	return { schemeIcon: schemeIcon[themeScheme], themeScheme, setTheme, toggleTheme };
+	useEffect(() => {
+		const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+		const handleColorSchemeChange = (event: MediaQueryListEvent) => {
+			setIsDarkMode(event.matches);
+		};
+		setIsDarkMode(darkModeMediaQuery.matches);
+		darkModeMediaQuery.addEventListener('change', handleColorSchemeChange);
+
+		return () => {
+			darkModeMediaQuery.removeEventListener('change', handleColorSchemeChange);
+		};
+	}, []);
+
+	return { schemeIcon: schemeIcon[themeScheme], themeScheme, isDarkMode, setTheme, toggleTheme };
 };

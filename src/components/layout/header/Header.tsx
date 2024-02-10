@@ -1,5 +1,5 @@
 import { Icon } from '#components/base/Icon';
-import { useTheme } from '#utils/data/themeController';
+import { useTheme } from '#utils/hooks/themeController';
 
 import styles from './header.module.scss';
 

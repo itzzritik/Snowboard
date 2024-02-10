@@ -5,6 +5,7 @@ import clsx from 'clsx';
 
 import { Icon } from '#components/base/Icon';
 import Trending from '#components/base/Trending';
+import MutualFundsChart from '#components/charts/MutualFundsChart';
 import Activities from '#components/layout/activities/Activities';
 import Contacts from '#components/layout/contacts/Contacts';
 import Header from '#components/layout/header/Header';
@@ -37,6 +38,12 @@ export default function Home () {
 						{
 							Trends.map((trend, i) => <Trending key={i} {...trend} />)
 						}
+					</div>
+					<div className={styles.charts}>
+						<div className={styles.mutualFundsChart}>
+							<MutualFundsChart />
+						</div>
+						<div className={styles.traffic} />
 					</div>
 				</div>
 			</div>

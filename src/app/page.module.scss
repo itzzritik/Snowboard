@@ -64,6 +64,21 @@
 				display: flex;
 				gap: 16px;
 				flex-wrap: wrap;
+				margin-bottom: 28px;
+			}
+			.charts {
+				display: flex;
+				gap: 28px;
+
+				.mutualFundsChart {
+					flex: 2;
+					background: var(--colorBackgroundSecondary);
+					border-radius: 16px;
+					padding: 24px;
+				}
+				.traffic {
+					flex: 1;
+				}
 			}
 		}
 	}

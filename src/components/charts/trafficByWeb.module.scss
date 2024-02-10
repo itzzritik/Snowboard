@@ -1,4 +1,4 @@
-.traffic {
+.trafficByWeb {
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -60,7 +60,7 @@
 					width: 100%;
 					height: 3px;
 					flex: 1;
-					background: white;
+					background: var(--colorContentPrimary);
 					border-radius: 9999px;
 
 					&:nth-child(2) {

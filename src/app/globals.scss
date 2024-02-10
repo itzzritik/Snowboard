@@ -19,6 +19,8 @@ html {
 
 	position: relative;
 	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
 	background: var(--colorBackgroundPrimary);
 	scroll-behavior: smooth;
 	transition: background 0.3s ease-out;
@@ -38,6 +40,8 @@ html {
 	body {
 		position: relative;
 		width: 100vw;
+		height: 100vh;
+		overflow: hidden;
 		margin: 0;
 	}
 }

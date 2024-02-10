@@ -49,3 +49,14 @@
 
 	}
 }
+
+@media (max-width: 475px) {
+	.header {
+		padding: 16px 20px;
+		gap: 4px;
+
+		.history, .bell {
+			display: none;
+		}
+	}
+}

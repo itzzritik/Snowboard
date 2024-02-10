@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
+
 import {
 	Chart as ChartJS,
 	CategoryScale,
@@ -14,8 +17,8 @@ import 'chartjs-adapter-moment';
 import moment from 'moment';
 import { Line } from 'react-chartjs-2';
 
-import { useMutualFunds } from '#utils/hooks/mutualFunds';
-import { useTheme } from '#utils/hooks/themeController';
+import { useMutualFunds } from '#utils/hooks/useMutualFunds';
+import { useTheme } from '#utils/hooks/useTheme';
 
 import styles from './mutualFundsChart.module.scss';
 
@@ -33,7 +36,7 @@ ChartJS.register(
 let current = '';
 const legends = ['This Year (2023)', 'Last Year (2022)'];
 
-export default function MutualFundsChart () {
+export default function MutualFundsChart ({ resizing } : {resizing: boolean}) {
 	const { merged, thisYear, lastYear } = useMutualFunds();
 	const { isDarkMode } = useTheme();
 
@@ -122,13 +125,13 @@ export default function MutualFundsChart () {
 	};
 
 	return (
-		<>
+		<div className={styles.mutualFundsChart}>
 			<div className={styles.mfHeader}>
 				<h3>Mutual Funds</h3>
 				<p>{legends[0]}</p>
 				<p>{legends[1]}</p>
 			</div>
-			<Line data={chartData} options={chartOptions} />
-		</>
+			{!resizing && <Line data={chartData} options={chartOptions} />}
+		</div>
 	);
 }

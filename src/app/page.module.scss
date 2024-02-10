@@ -1,6 +1,8 @@
 .main {
 	position: relative;
 	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
 	display: flex;
 
 	.nav {
@@ -8,10 +10,14 @@
 		min-width: 212px;
 		height: 100%;
 		margin-left: -212px;
+		background: var(--colorBackgroundSecondary);
 		transition: all 0.3s ease-out;
+		z-index: 20;
 	}
 	.content {
+		position: relative;
 		flex: 1;
+		min-width: 416px;
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
@@ -20,24 +26,27 @@
 		border-bottom: 0px;
 
 		.pageBody {
-			flex: 1;
+			position: relative;
+			width: 100%;
 			display: flex;
 			flex-direction: column;
 			padding: 24px;
+			overflow: auto;
 
 			.topBar {
+				height: fit-content;
 				display: flex;
 				justify-content: space-between;
 				padding: 16px 8px;
 
-				p {
+				> p {
 					font-size: 14px;
 					line-height: 20px;
 					font-variation-settings: "wdth" 75, "wght" 600;
 					margin: 0;
 					transition: all 0.3s ease-out;
 				}
-				div {
+				> div {
 					display: flex;
 					align-items: center;
 					font-size: 12px;
@@ -71,6 +80,7 @@
 				display: flex;
 				flex-wrap: wrap;
 				gap: 28px;
+				margin-bottom: 28px;
 
 				.mutualFundsChart {
 					position: relative;
@@ -94,6 +104,37 @@
 					background: var(--colorBackgroundSecondary);
 				}
 			}
+			.barAndPie {
+				position: relative;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 28px;
+				margin-bottom: 28px;
+
+				> div {
+					position: relative;
+					flex: 1;
+					background: var(--colorBackgroundSecondary);
+					border-radius: 16px;
+					padding: 24px;
+					min-height: 240px;
+				}
+			}
+			.marketing {
+				position: relative;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 28px;
+
+				> div {
+					position: relative;
+					flex: 1;
+					background: var(--colorBackgroundSecondary);
+					border-radius: 16px;
+					padding: 24px;
+					min-height: 240px;
+				}
+			}
 		}
 	}
 	.sidebar {
@@ -105,17 +146,58 @@
 		padding: 16px;
 		gap: 16px;
 		margin-right: -280px;
+		background: var(--colorBackgroundSecondary);
 		transition: all 0.3s ease-out;
+		z-index: 30;
+	}
+	.backdrop {
+		position: fixed;
+		inset: 0 0 0 0;
+		background: #111;
+		opacity: 0.9;
+		z-index: 5;
+		cursor: pointer;
 	}
 
 	&.navOpen {
 		.nav {
 			margin-left: 0;
+			transform: translateX(0);
 		}
 	}
 	&.sidebarOpen {
 		.sidebar {
 			margin-right: 0;
+			transform: translateX(0);
+		}
+	}
+}
+
+@media (max-width: 970px) {
+	.nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		margin-left: 0;
+		transform: translateX(-212px);
+		transition: all 0.3s ease-out;
+	}
+	.sidebar {
+		position: fixed;
+		top: 0;
+		right: 0;
+		margin-right: 0;
+		transform: translateX(280px);
+		transition: all 0.3s ease-out;
+	}
+}
+
+@media (max-width: 475px) {
+	.main {
+		.content {
+			.pageBody {
+				padding: 16px 8px;
+			}
 		}
 	}
 }

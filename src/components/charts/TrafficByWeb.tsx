@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
 
-import { traffics } from '#utils/data/charts';
+import { trafficsByWeb } from '#utils/data/charts';
 
-import styles from './traffic.module.scss';
+import styles from './trafficByWeb.module.scss';
 
-export default function Traffic () {
-	const [localTraffic, setLocalTraffic] = useState(traffics.map((v) => ({ ...v, value: 40 })));
+export default function TrafficByWeb () {
+	const [localTraffic, setLocalTraffic] = useState(trafficsByWeb.map((v) => ({ ...v, value: 40 })));
 
 	useEffect(() => {
-		setTimeout(() => setLocalTraffic(traffics), 1000);
+		setTimeout(() => setLocalTraffic(trafficsByWeb), 1000);
 	}, []);
 
 	return (
-		<div className={styles.traffic}>
+		<div className={styles.trafficByWeb}>
 			<h3>Traffic by Website</h3>
 			<div className={styles.charts}>
 				<div className={styles.services}>

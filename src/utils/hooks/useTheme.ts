@@ -44,15 +44,15 @@ export const useTheme = () => {
 		const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
 		const handleColorSchemeChange = (event: MediaQueryListEvent) => {
-			setIsDarkMode(event.matches);
+			setIsDarkMode(themeScheme === 'system' ? event.matches : themeScheme === 'dark');
 		};
-		setIsDarkMode(darkModeMediaQuery.matches);
+		setIsDarkMode(themeScheme === 'system' ? darkModeMediaQuery.matches : themeScheme === 'dark');
 		darkModeMediaQuery.addEventListener('change', handleColorSchemeChange);
 
 		return () => {
 			darkModeMediaQuery.removeEventListener('change', handleColorSchemeChange);
 		};
-	}, []);
+	}, [themeScheme]);
 
 	return { schemeIcon: schemeIcon[themeScheme], themeScheme, isDarkMode, setTheme, toggleTheme };
 };

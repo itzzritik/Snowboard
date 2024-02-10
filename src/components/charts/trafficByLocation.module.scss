@@ -1,0 +1,63 @@
+.trafficByLocation {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	> p {
+		font-size: 14px;
+		line-height: 20px;
+		font-variation-settings: "wdth" 75, "wght" 600;
+		margin: 0;
+		transition: all 0.3s ease-out;
+
+		&:hover {
+			transform: translateX(8px);
+		}
+	}
+
+	.chartWrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		flex: 1;
+		gap: 16px;
+
+		.donut {
+			width: 150px;
+			height: 150px;
+
+			canvas {
+				inset: 0 0 0 0;
+			}
+		}
+		.legend {
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+
+			.legendItem {
+				width: 184px;
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+
+				> span {
+					width: 6px;
+					height: 6px;
+					border-radius: 9999px;
+					margin-right: 8px;
+				}
+				> p {
+					font-size: 12px;
+					line-height: 18px;
+					font-variation-settings: "wdth" 75, "wght" 400;
+					margin: 0;
+
+					&.traffic {
+						margin-left: auto;
+					}
+				}
+			}
+		}
+	}
+}

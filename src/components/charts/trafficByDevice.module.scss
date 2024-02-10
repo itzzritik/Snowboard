@@ -1,0 +1,17 @@
+.trafficByDevice {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	p {
+		font-size: 14px;
+		line-height: 20px;
+		font-variation-settings: "wdth" 75, "wght" 600;
+		margin: 0;
+		transition: all 0.3s ease-out;
+
+		&:hover {
+			transform: translateX(8px);
+		}
+	}
+}

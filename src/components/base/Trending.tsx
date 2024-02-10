@@ -6,18 +6,19 @@ import { Icon } from './Icon';
 import styles from './trending.module.scss';
 
 const digitWidth = 20;
+let timeOut: NodeJS.Timeout;
+
 export default function Trending ({ title, value, percent }: TTrending) {
 	const [animValue, setAnimValue] = useState('0000');
 
 	const onMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+		clearTimeout(timeOut);
 		const rect = e.currentTarget.getBoundingClientRect();
 		const x = e.clientX - rect.left;
 
 		const digit = Math.abs(Math.trunc(x / digitWidth));
 		setAnimValue(value.slice(0, digit) + '0' + value.slice(digit + 1));
-	};
-	const onMouseLeave = () => {
-		setAnimValue(value);
+		timeOut = setTimeout(() => setAnimValue(value), 1000);
 	};
 
 	useEffect(() => {
@@ -28,7 +29,7 @@ export default function Trending ({ title, value, percent }: TTrending) {
 		<div className={styles.trending}>
 			<h3>{title}</h3>
 			<div className={styles.valueWrapper}>
-				<div onMouseMove={onMouseMove} onMouseLeave={onMouseLeave}>
+				<div onMouseMove={onMouseMove}>
 					<FlipNumbers
 						height={30}
 						width={digitWidth}

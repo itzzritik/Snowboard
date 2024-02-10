@@ -1,0 +1,39 @@
+.mfHeader {
+	display: flex;
+	align-items: center;
+	margin-bottom: 16px;
+	
+	h3 {
+		font-size: 14px;
+		line-height: 20px;
+		font-variation-settings: "wdth" 75, "wght" 500;
+		margin: 0;
+		transition: all 0.3s ease-out;
+		margin-right: auto;
+	}
+	p {
+		position: relative;
+		font-size: 12px;
+		line-height: 18px;
+		font-variation-settings: "wdth" 75, "wght" 400;
+		margin: 0 0 0 12px;
+		transition: all 0.3s ease-out;
+		padding: 4px 8px 4px 12px;
+		display: flex;
+		align-items: center;
+
+		&::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			width: 6px;
+			height: 6px;
+			background: var(--colorGraph);
+			border-radius: 9999px;
+		}
+
+		&:last-child::before {
+			background: #A8C5DA;
+		}
+	}
+}

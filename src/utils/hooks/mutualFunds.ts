@@ -1,21 +1,19 @@
 import { useEffect, useState } from 'react';
 
+const currentYear = new Date().getFullYear();
 const toDate = (dateString: string) => {
 	return new Date(`${dateString.split('-').reverse().join('-')}`);
 };
 const updateYear = (date: Date) => {
-	date.setFullYear(new Date().getFullYear());
+	date.setFullYear(currentYear - 1);
 	return date;
 };
 const groupDataByYear = (data: TMutualFunds[]) => {
-	const currentYear = new Date().getFullYear();
-	const previousYear = currentYear - 1;
-
-	const thisYear = data.filter((v) => v.date.getFullYear() === currentYear)
+	const thisYear = data.filter((v) => v.date.getFullYear() === currentYear - 1)
 		.sort((a, b) => a.date.getTime() - b.date.getTime())
 		.map((v) => ({ ...v, date: v.date }));
 
-	const lastYear = data.filter((v) => v.date.getFullYear() === previousYear)
+	const lastYear = data.filter((v) => v.date.getFullYear() === currentYear - 2)
 		.sort((a, b) => a.date.getTime() - b.date.getTime())
 		.map((v) => ({ ...v, date: updateYear(v.date) }));
 

@@ -8,6 +8,8 @@
 	--colorBackgroundPrimary: #FFFFFF;
 	--colorBackgroundSecondary: #F7F9FB;
 	--colorBackgroundTertiary: #F3F3F3;
+
+	--colorGraph: #1C1C1C;
 }
 
 @mixin darkScheme {
@@ -20,6 +22,8 @@
 	--colorBackgroundPrimary: #1C1C1C;
 	--colorBackgroundSecondary: #272727;
 	--colorBackgroundTertiary: #333333;
+
+	--colorGraph: #C6C7F8;
 }
 
 @mixin systemScheme {

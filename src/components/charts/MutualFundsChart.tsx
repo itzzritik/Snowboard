@@ -9,15 +9,15 @@ import {
 	Legend,
 	TimeScale,
 	TimeSeriesScale,
-	Ticks,
 } from 'chart.js';
 import 'chartjs-adapter-moment';
 import moment from 'moment';
 import { Line } from 'react-chartjs-2';
 
-import { monthNames } from '#utils/data/charts';
 import { useMutualFunds } from '#utils/hooks/mutualFunds';
 import { useTheme } from '#utils/hooks/themeController';
+
+import styles from './mutualFundsChart.module.scss';
 
 ChartJS.register(
 	CategoryScale,
@@ -31,6 +31,8 @@ ChartJS.register(
 	TimeSeriesScale,
 );
 let current = '';
+const legends = ['This Year (2023)', 'Last Year (2022)'];
+
 export default function MutualFundsChart () {
 	const { merged, thisYear, lastYear } = useMutualFunds();
 	const { isDarkMode } = useTheme();
@@ -39,7 +41,7 @@ export default function MutualFundsChart () {
 		labels: merged.map((point) => point.date),
 		datasets: [
 			{
-				label: 'This Year',
+				label: legends[0],
 				data: thisYear.map((point) => ({ x: point.date, y: point.nav })),
 				fill: false,
 				borderColor: isDarkMode ? '#C6C7F8' : '#1C1C1C',
@@ -48,12 +50,12 @@ export default function MutualFundsChart () {
 				pointRadius: 0,
 			},
 			{
-				label: 'Last Year',
+				label: legends[1],
 				data: lastYear.map((point) => ({ x: point.date, y: point.nav })),
 				fill: false,
 				borderColor: '#A8C5DA',
 				tension: 0.4,
-				borderWidth: 1,
+				borderWidth: isDarkMode ? 1 : 2,
 				pointRadius: 0,
 				borderDash: [8, 2],
 			},
@@ -76,7 +78,6 @@ export default function MutualFundsChart () {
 					},
 					label: function (context: { parsed: { x: number; y: number; }; }) {
 						const { x, y } = context.parsed;
-
 						const date = moment(x).format('DD MMM');
 						return ` ${Number(y).toFixed(2)} on ${date}`;
 					},
@@ -120,5 +121,14 @@ export default function MutualFundsChart () {
 		},
 	};
 
-	return <Line data={chartData} options={chartOptions} />;
+	return (
+		<>
+			<div className={styles.mfHeader}>
+				<h3>Mutual Funds</h3>
+				<p>{legends[0]}</p>
+				<p>{legends[1]}</p>
+			</div>
+			<Line data={chartData} options={chartOptions} />
+		</>
+	);
 }

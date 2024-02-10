@@ -12,7 +12,7 @@ import Contacts from '#components/layout/contacts/Contacts';
 import Header from '#components/layout/header/Header';
 import Navigation from '#components/layout/navigation/Navigation';
 import Notification from '#components/layout/notification/Notification';
-import { Trends, monthNames } from '#utils/data/charts';
+import { Trends } from '#utils/data/charts';
 import { dashboards } from '#utils/data/nav';
 
 import styles from './page.module.scss';

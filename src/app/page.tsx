@@ -6,12 +6,13 @@ import clsx from 'clsx';
 import { Icon } from '#components/base/Icon';
 import Trending from '#components/base/Trending';
 import MutualFundsChart from '#components/charts/MutualFundsChart';
+import Traffic from '#components/charts/Traffic';
 import Activities from '#components/layout/activities/Activities';
 import Contacts from '#components/layout/contacts/Contacts';
 import Header from '#components/layout/header/Header';
 import Navigation from '#components/layout/navigation/Navigation';
 import Notification from '#components/layout/notification/Notification';
-import { Trends } from '#utils/data/charts';
+import { Trends, monthNames } from '#utils/data/charts';
 import { dashboards } from '#utils/data/nav';
 
 import styles from './page.module.scss';
@@ -43,7 +44,9 @@ export default function Home () {
 						<div className={styles.mutualFundsChart}>
 							<MutualFundsChart />
 						</div>
-						<div className={styles.traffic} />
+						<div className={styles.traffic}>
+							<Traffic />
+						</div>
 					</div>
 				</div>
 			</div>

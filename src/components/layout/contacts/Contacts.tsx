@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import { contacts } from '#utils/data/sidebar';
-import { useAvatar } from '#utils/data/userData';
+import { useAvatar } from '#utils/hooks/userData';
 
 import User from '../User';
 

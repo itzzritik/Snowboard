@@ -7,7 +7,12 @@ import {
 	Title,
 	Tooltip,
 	Legend,
+	TimeScale,
+	TimeSeriesScale,
+	Ticks,
 } from 'chart.js';
+import 'chartjs-adapter-moment';
+import moment from 'moment';
 import { Line } from 'react-chartjs-2';
 
 import { monthNames } from '#utils/data/charts';
@@ -22,33 +27,35 @@ ChartJS.register(
 	Title,
 	Tooltip,
 	Legend,
+	TimeScale,
+	TimeSeriesScale,
 );
-
+let current = '';
 export default function MutualFundsChart () {
-	const { thisYear, lastYear } = useMutualFunds();
+	const { merged, thisYear, lastYear } = useMutualFunds();
 	const { isDarkMode } = useTheme();
 
 	const chartData = {
-		labels: monthNames,
+		labels: merged.map((point) => point.date),
 		datasets: [
 			{
-				label: 'This year',
+				label: 'This Year',
 				data: thisYear.map((point) => ({ x: point.date, y: point.nav })),
-				fill: '+1',
+				fill: false,
 				borderColor: isDarkMode ? '#C6C7F8' : '#1C1C1C',
 				tension: 0.4,
-				borderWidth: 1,
+				borderWidth: 2,
 				pointRadius: 0,
 			},
 			{
 				label: 'Last Year',
 				data: lastYear.map((point) => ({ x: point.date, y: point.nav })),
-				fill: '+1',
+				fill: false,
 				borderColor: '#A8C5DA',
 				tension: 0.4,
 				borderWidth: 1,
 				pointRadius: 0,
-				borderDash: [5, 5],
+				borderDash: [8, 2],
 			},
 		],
 	};
@@ -62,6 +69,19 @@ export default function MutualFundsChart () {
 			title: {
 				display: false,
 			},
+			tooltip: {
+				callbacks: {
+					title: function (context: { dataset: { label: number; }; }[]) {
+						return context?.[0].dataset.label;
+					},
+					label: function (context: { parsed: { x: number; y: number; }; }) {
+						const { x, y } = context.parsed;
+
+						const date = moment(x).format('DD MMM');
+						return ` ${Number(y).toFixed(2)} on ${date}`;
+					},
+				},
+			},
 		},
 		scales: {
 			x: {
@@ -70,6 +90,23 @@ export default function MutualFundsChart () {
 				},
 				grid: {
 					display: false,
+				},
+				type: 'timeseries',
+				time: {
+					unit: 'month',
+					parser: (value: Date) => moment(value, 'YYYY-MM'),
+					displayFormats: {
+						month: 'MMM',
+					},
+				},
+				ticks: {
+					autoSkip: true,
+					callback: function (value: moment.MomentInput) {
+						const mon = moment(value).format('MMM');
+						const val = current === mon ? null : mon;
+						current = mon;
+						return val;
+					},
 				},
 			},
 			y: {

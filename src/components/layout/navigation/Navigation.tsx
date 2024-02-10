@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
 import { dashboards, pages } from '#utils/data/nav';
-import { useAvatar } from '#utils/data/userData';
+import { useAvatar } from '#utils/hooks/userData';
 
 import User from '../User';
 

@@ -1,44 +1,62 @@
 import { useEffect, useState } from 'react';
 
+const toDate = (dateString: string) => {
+	return new Date(`${dateString.split('-').reverse().join('-')}`);
+};
+const updateYear = (date: Date) => {
+	date.setFullYear(new Date().getFullYear());
+	return date;
+};
 const groupDataByYear = (data: TMutualFunds[]) => {
 	const currentYear = new Date().getFullYear();
-	const thisYear: TMutualFunds[] = [];
-	const lastYear: TMutualFunds[] = [];
+	const previousYear = currentYear - 1;
 
-	data.forEach((item) => {
-		const date = item.date.toString();
-		const year = new Date(date.split('-').reverse().join('-')).getFullYear();
-		if (year === currentYear) {
-			thisYear.push({
-				date: new Date(item.date),
-				nav: item.nav,
-			});
-		} else if (year === currentYear - 1) {
-			lastYear.push({
-				date: new Date(date.replace('2023', '2024')),
-				nav: item.nav,
-			});
-		}
-	});
+	const thisYear = data.filter((v) => v.date.getFullYear() === currentYear)
+		.sort((a, b) => a.date.getTime() - b.date.getTime())
+		.map((v) => ({ ...v, date: v.date }));
 
-	return { thisYear, lastYear };
+	const lastYear = data.filter((v) => v.date.getFullYear() === previousYear)
+		.sort((a, b) => a.date.getTime() - b.date.getTime())
+		.map((v) => ({ ...v, date: updateYear(v.date) }));
+
+	const merged = [...thisYear, ...lastYear].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+	return { thisYear, lastYear, merged };
 };
 
 export const useMutualFunds = () => {
 	const [data, setData] = useState<TMutualFunds[]>([]);
+	const [thisYear, setThisYear] = useState<TMutualFunds[]>([]);
+	const [lastYear, setLastYear] = useState<TMutualFunds[]>([]);
+	const [merged, setMerged] = useState<TMutualFunds[]>([]);
 
 	useEffect(() => {
 		fetch('https://api.mfapi.in/mf/122640')
 			.then((req) => req.json())
-			.then((res) => setData(res?.data?.map((mf: TMutualFunds) => {
-				return mf;
-			})));
+			.then((res) => {
+				const updatedData = res?.data?.map((mf: TMutualFundsString) => ({ ...mf, date: toDate(mf.date) }));
+				const groupData = groupDataByYear(updatedData);
+
+				setThisYear(groupData.thisYear);
+				setLastYear(groupData.lastYear);
+				setMerged(groupData.merged);
+				setData(updatedData);
+			});
 	}, []);
 
-	return { ...groupDataByYear(data) };
+	return {
+		total: data,
+		merged,
+		thisYear,
+		lastYear,
+	};
 };
 
 type TMutualFunds = {
 	date: Date,
+	nav: string,
+}
+
+type TMutualFundsString = {
+	date: string,
 	nav: string,
 }

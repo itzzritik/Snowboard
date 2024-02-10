@@ -23,11 +23,11 @@ export const Trends = [
 
 export const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-export const traffic = {
-	Google: 40,
-	YouTube: 80,
-	Instagram: 50,
-	Pinterest: 100,
-	Facebook: 30,
-	Twitter: 60,
-};
+export const traffics = [
+	{ service: 'Google', value: 40 },
+	{ service: 'YouTube', value: 80 },
+	{ service: 'Instagram', value: 50 },
+	{ service: 'Pinterest', value: 100 },
+	{ service: 'Facebook', value: 30 },
+	{ service: 'Twitter', value: 60 },
+];

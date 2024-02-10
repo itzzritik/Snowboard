@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import { activities } from '#utils/data/sidebar';
-import { useAvatar } from '#utils/data/userData';
+import { useAvatar } from '#utils/hooks/userData';
 
 import styles from './activities.module.scss';
 

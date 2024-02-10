@@ -21,7 +21,7 @@ export default function Trending ({ title, value, percent }: TTrending) {
 	};
 
 	useEffect(() => {
-		setTimeout(() => setAnimValue(value), 500);
+		setTimeout(() => setAnimValue(value), 1000);
 	}, [value]);
 
 	return (

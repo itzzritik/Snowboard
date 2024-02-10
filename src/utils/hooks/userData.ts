@@ -9,7 +9,7 @@ export const useAvatar = (size: number = 300) => {
 		fetch(getAvatarUrl(size), { method: 'HEAD' })
 			.then((response) => {
 				const finalUrl = response.url ?? response.headers.get('location');
-				setAvatar(finalUrl ?? '');
+				setAvatar((v) => (v ? v : finalUrl ?? ''));
 			})
 			.catch((error) => console.error('Error:', error));
 	}, [size]);

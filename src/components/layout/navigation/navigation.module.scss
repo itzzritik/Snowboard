@@ -4,4 +4,22 @@
 	flex-direction: column;
 	padding: 16px;
 	gap: 8px;
+
+	.logo {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+		margin: auto 0 16px -8px;
+		cursor: pointer;
+		transition: all 0.15s ease-out;
+
+		p {
+			margin: 2px 0 0 0;
+		}
+
+		&:hover {
+			scale: 1.06;
+		}
+	}
 }

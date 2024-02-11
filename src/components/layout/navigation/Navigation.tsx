@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 
+import Logo from '#components/base/Logo';
 import { dashboards, pages } from '#utils/data/nav';
 import { useAvatar } from '#utils/hooks/userData';
 
@@ -18,6 +19,10 @@ export default function Navigation ({ className, active, setActive }: TNavigatio
 			<Favorite />
 			<NavList title='Dashboards' active={active} setActive={setActive} data={dashboards} />
 			<NavList title='Pages' active={active} setActive={setActive} data={pages} />
+			<div className={styles.logo} onClick={() => window.open('https://github.com/itzzritik/XtremeUI', '_blank')}>
+				<Logo />
+				<p>XtremeUI</p>
+			</div>
 		</div>
 	);
 }

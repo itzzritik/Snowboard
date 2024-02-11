@@ -18,21 +18,23 @@
 	.chartWrapper {
 		display: flex;
 		align-items: center;
-		justify-content: space-around;
+		justify-content: space-evenly;
 		flex: 1;
 		gap: 16px;
 
 		.donut {
-			width: 150px;
-			height: 150px;
+			height: 70%;
+			aspect-ratio: 1;
 
 			canvas {
 				inset: 0 0 0 0;
 			}
 		}
 		.legend {
+			min-height: 250px;
 			display: flex;
 			flex-direction: column;
+			justify-content: center;
 			gap: 12px;
 
 			.legendItem {

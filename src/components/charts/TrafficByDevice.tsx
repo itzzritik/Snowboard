@@ -36,6 +36,7 @@ export default function TrafficByDevice ({ resizing, title, data } : TTrafficByD
 				data: data.map((d) => d.y / 1000),
 				backgroundColor: colorList,
 				borderWidth: 0,
+				barThickness: 32,
 			},
 		],
 	};

@@ -1,0 +1,29 @@
+.logo {
+	--logoSize: 20px;
+
+	> svg {
+		width: var(--logoSize);
+		height: var(--logoSize);
+		fill: var(--colorContentPrimary);
+		stroke: var(--colorContentPrimary);
+		stroke-width: 15px;
+		stroke-linecap: round;
+		stroke-linejoin: round;
+		margin-bottom: calc(var(--logoSize) / -3.5);
+		transition: all 0.5s ease-out;
+
+		&.ritik {
+			margin-right: -2px;
+		}
+
+		&.srivastava {
+			margin-left: -2px;
+		}
+	}
+
+	&.outlined {
+		> svg {
+			fill: transparent;
+		}
+	}
+}

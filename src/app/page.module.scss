@@ -10,7 +10,7 @@
 		min-width: 212px;
 		height: 100%;
 		margin-left: -212px;
-		background: var(--colorBackgroundSecondary);
+		background: var(--colorBackgroundPrimary);
 		transition: all 0.3s ease-out;
 		z-index: 20;
 	}
@@ -146,7 +146,7 @@
 		padding: 16px;
 		gap: 16px;
 		margin-right: -280px;
-		background: var(--colorBackgroundSecondary);
+		background: var(--colorBackgroundPrimary);
 		transition: all 0.3s ease-out;
 		z-index: 30;
 	}

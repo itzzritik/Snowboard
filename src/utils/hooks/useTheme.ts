@@ -41,17 +41,19 @@ export const useTheme = () => {
 	}, []);
 
 	useEffect(() => {
-		const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+		if (typeof window !== 'undefined') {
+			const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-		const handleColorSchemeChange = (event: MediaQueryListEvent) => {
-			setIsDarkMode(themeScheme === 'system' ? event.matches : themeScheme === 'dark');
-		};
-		setIsDarkMode(themeScheme === 'system' ? darkModeMediaQuery.matches : themeScheme === 'dark');
-		darkModeMediaQuery.addEventListener('change', handleColorSchemeChange);
+			const handleColorSchemeChange = (event: MediaQueryListEvent) => {
+				setIsDarkMode(themeScheme === 'system' ? event.matches : themeScheme === 'dark');
+			};
+			setIsDarkMode(themeScheme === 'system' ? darkModeMediaQuery.matches : themeScheme === 'dark');
+			darkModeMediaQuery.addEventListener('change', handleColorSchemeChange);
 
-		return () => {
-			darkModeMediaQuery.removeEventListener('change', handleColorSchemeChange);
-		};
+			return () => {
+				darkModeMediaQuery.removeEventListener('change', handleColorSchemeChange);
+			};
+		}
 	}, [themeScheme]);
 
 	return { schemeIcon: schemeIcon[themeScheme], themeScheme, isDarkMode, setTheme, toggleTheme };

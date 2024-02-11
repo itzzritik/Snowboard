@@ -11,17 +11,19 @@ export const useIsResizing = (ref: RefObject<HTMLDivElement>) => {
 	};
 
 	useEffect(() => {
-		const observeTarget = ref.current;
-		const resizeObserver = new ResizeObserver(resizeHandler);
+		if (typeof window !== 'undefined') {
+			const observeTarget = ref.current;
+			const resizeObserver = new ResizeObserver(resizeHandler);
 
-		if (observeTarget) resizeObserver.observe(observeTarget);
-		window.addEventListener('resize', resizeHandler);
+			if (observeTarget) resizeObserver.observe(observeTarget);
+			window.addEventListener('resize', resizeHandler);
 
-		return () => {
-			if (timeOut) clearTimeout(timeOut);
-			if (observeTarget) resizeObserver.unobserve(observeTarget);
-			window.removeEventListener('resize', resizeHandler);
-		};
+			return () => {
+				if (timeOut) clearTimeout(timeOut);
+				if (observeTarget) resizeObserver.unobserve(observeTarget);
+				window.removeEventListener('resize', resizeHandler);
+			};
+		}
 	}, [ref]);
 
 	return resizing;

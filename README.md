@@ -1,3 +1,6 @@
+<img src="public/screenshots/banner.png" width="100%">
+<br>
+
 # ❄️ SnowBoard - A Beautiful Dashboard Experience ❄️
 
 Welcome to the Snow UI Dashboard clone! Inspired by the mesmerizing [Snow UI Dashboard](https://snowui.framer.website/),

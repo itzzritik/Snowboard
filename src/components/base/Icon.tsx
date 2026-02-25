@@ -12,7 +12,7 @@ export const Icon = forwardRef<HTMLSpanElement, TIconProps>((props, ref) => {
 	const iconSize = `${typeof size === 'number' ? size : EIconSize[size]}px`;
 	const IconClsx = clsx(
 		styles.icon,
-		'fontAwesome',
+		'fa',
 		type,
 		onClick && styles.iconButton,
 		className,

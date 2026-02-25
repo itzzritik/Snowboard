@@ -1,7 +1,7 @@
 import { RefObject, useEffect, useState } from 'react';
 
 let timeOut: NodeJS.Timeout;
-export const useIsResizing = (ref: RefObject<HTMLDivElement>) => {
+export const useIsResizing = (ref: RefObject<HTMLDivElement | null>) => {
 	const [resizing, setResizing] = useState(false);
 
 	const resizeHandler = () => {

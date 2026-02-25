@@ -11,9 +11,15 @@ export const metadata: Metadata = {
 	description: 'Snow Dashboard clone created by Ritik Srivastava originally by https://snowui.framer.website',
 };
 
+const CDN = "https://cdn.jsdelivr.net/gh/itzzjarvis/Assets@main/styles/fa/fa.css";
+
 export default function RootLayout ({ children }: Readonly<{ children: ReactNode }>) {
 	return (
 		<html lang='en' data-theme-scheme='system' suppressHydrationWarning>
+			<head>
+				<link as="style" href={CDN} rel="preload" />
+				<link href={CDN} rel="stylesheet" />
+			</head>
 			<body className={inter.variable} suppressHydrationWarning>
 				{children}
 			</body>

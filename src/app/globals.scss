@@ -1,5 +1,4 @@
-@import '../styles/colorSchemes';
-@import '../styles/fontAwesome';
+@use '../styles/colorSchemes' as *;
 
 html {
 	&[data-theme-scheme='system'] {

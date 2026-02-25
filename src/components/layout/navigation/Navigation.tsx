@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 import Logo from '#components/base/Logo';
 import { dashboards, pages } from '#utils/data/nav';
-import { useAvatar } from '#utils/hooks/userData';
+import { getAvatarUrl } from '#utils/hooks/userData';
 
 import User from '../User';
 
@@ -11,7 +11,7 @@ import NavList from './NavList';
 import styles from './navigation.module.scss';
 
 export default function Navigation ({ className, active, setActive }: TNavigation) {
-	const avatar = useAvatar(24);
+	const avatar = getAvatarUrl(24, 1);
 
 	return (
 		<div className={clsx(styles.navigation, className)}>
